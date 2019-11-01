@@ -1,11 +1,10 @@
 import React from 'react';
 import './App.css';
-import { gql } from "apollo-boost";
+import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
 
 function App() {
- const jobquery = gql`
-  {
+  const jobquery = gql`{
     jobs { 
       title, 
       company{name}, 
@@ -16,9 +15,9 @@ function App() {
   const { loading, error, data } = useQuery(jobquery);
 
   if (loading)
-    return "Loading...";
+    return "Loading..."
   if (error)
-    return `Error ${error.message}`;
+    return "Error";
 
   return (
     <div className="App">
