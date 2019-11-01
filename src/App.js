@@ -15,12 +15,12 @@ function App() {
 
   const { loading, error, data } = useQuery(jobquery);
 
-  if (loading)
+  if (loading) // If still loading
     return "Loading...";
-  if (error)
+  if (error) // It there came an error
     return `Error ${error.message}`;
 
-  return (
+  return ( // When there is data
     <div className="App">
       <table>
         <tbody>
